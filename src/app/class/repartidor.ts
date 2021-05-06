@@ -8,6 +8,6 @@ export class Repartidor {
         public dni?: number,
         public capacidad?: number,
         public paisOrigen?: Pais,
-        public unidad?: boolean,
+        public unidadPropia?: boolean,
     ) { }
 }

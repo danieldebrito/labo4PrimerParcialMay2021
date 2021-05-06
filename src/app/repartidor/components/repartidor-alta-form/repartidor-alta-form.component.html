@@ -2,100 +2,113 @@
 <form [formGroup]="formulario" (ngSubmit)="cargarActor()">
 
   <div class="row">
-    <div class="col-sm-3">
-      <img src="/assets/actores/ted.jpg" alt="" srcset="">
-    </div>
     <div class="col-sm-9">
-      <div class="row">
-
-        <div class="col-sm-6">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
-          <small class="invalid"
-            *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">
-            El nombre es requerido.
-          </small>
-          <small class="invalid"
-            *ngIf="formulario.controls.nombre.errors?.minlength && formulario.controls.nombre.touched">
-            El nombre debe tener al menos dos caracteres.
-          </small>
-          <small class="invalid"
-            *ngIf="formulario.controls.nombre.errors?.maxlength && formulario.controls.nombre.touched">
-            El nombre puede tener cuarenta caracteres maxino.
-          </small>
-          <small class="invalid"
-            *ngIf="formulario.controls.nombre.errors?.containsSpaces && formulario.controls.nombre.touched">
-            El nombre no puede contener espacios.
-          </small>
-        </div>
-
-        <div class="col-sm-6">
-          <label for="apellido" class="form-label">Apellido</label>
-          <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido"
-            formControlName="apellido">
-          <small class="invalid"
-            *ngIf="formulario.controls.apellido.errors?.required && formulario.controls.apellido.touched">
-            El apellido es requerido
-          </small>
-          <small class="invalid"
-            *ngIf="formulario.controls.apellido.errors?.maxlength && formulario.controls.apellido.touched">
-            El apellido puede tener cuarenta caracteres maxino.
-          </small>
-        </div>
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-2">
-          <label for="sexo" class="form-label">Sexo</label>
-          <select class="form-control" id="sexo" formControlName="sexo">
-            <option value="">Seleccione uno</option>
-            <option value="F">Femenino</option>
-            <option value="M">Masculino</option>
-          </select>
-          <small class="invalid" *ngIf="formulario.controls.sexo.errors?.required && formulario.controls.sexo.touched">
-            El sexo es requerido
-          </small>
-        </div>
-
-        <div class="col-md-5">
-          <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
-          <input type="text" class="form-control" id="fechaNacimiento" placeholder="Ingrese fecha nacimiento"
-            formControlName="fechaNacimiento">
-          <small class="invalid"
-            *ngIf="formulario.controls.fechaNacimiento.errors?.required && formulario.controls.fechaNacimiento.touched">
-            La fecha de nacimiento es requerida
-          </small>
-        </div>
-
-        <div class="col-md-5 p-3">
-          <app-pais-detalle [pais]="pais"></app-pais-detalle>
-        </div>
-        <small class="invalid" *ngIf="errorPais">
-          El pais es requerido
-        </small>
-
-      </div>
-
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+      <small class="invalid" *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">
+        El nombre es requerido.
+      </small>
+      <small class="invalid" *ngIf="formulario.controls.nombre.errors?.minlength && formulario.controls.nombre.touched">
+        El nombre debe tener al menos dos caracteres.
+      </small>
+      <small class="invalid" *ngIf="formulario.controls.nombre.errors?.maxlength && formulario.controls.nombre.touched">
+        El nombre puede tener cuarenta caracteres maxino.
+      </small>
+      <small class="invalid"
+        *ngIf="formulario.controls.nombre.errors?.containsSpaces && formulario.controls.nombre.touched">
+        El nombre no puede contener espacios.
+      </small>
     </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="edad" class="form-label">Edad</label>
+      <input type="text" class="form-control" id="edad" placeholder="Ingrese edad" formControlName="edad">
+      <small class="invalid" *ngIf="formulario.controls.edad.errors?.required && formulario.controls.edad.touched">
+        La edad es requerida
+      </small>
+      <small class="invalid"
+        *ngIf="formulario.controls.edad.errors?.min || formulario.controls.edad.errors?.max && formulario.controls.edad.touched">
+        La edad debe ser de 18 a 99 años
+      </small>
+      <small class="invalid" *ngIf="formulario.controls.edad.errors?.pattern && formulario.controls.edad.touched">
+        La edad debe contener solo numeros.
+      </small>
+    </div>
+
   </div>
+
+  <div class="row">
+
+    <div class="col-md-6 mb-5">
+      <label for="dni" class="form-label">dni</label>
+      <input type="text" class="form-control" id="dni" placeholder="Ingrese dni" formControlName="dni">
+      <small class="invalid" *ngIf="formulario.controls.dni.errors?.required && formulario.controls.dni.touched">
+        El dni es requerido
+      </small>
+      <small class="invalid" *ngIf="formulario.controls.dni.errors?.minlength && formulario.controls.dni.touched">
+        El dni debe tener al menos siete numeros.
+      </small>
+      <small class="invalid" *ngIf="formulario.controls.dni.errors?.maxlength && formulario.controls.dni.touched">
+        El dni puede tener diez ocho maxino.
+      </small>
+      <small class="invalid" *ngIf="formulario.controls.dni.errors?.pattern && formulario.controls.dni.touched">
+        El dni debe contener solo numeros.
+      </small>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="capacidad" class="form-label">Capacidad</label>
+      <input type="text" class="form-control" id="capacidad" placeholder="Ingrese capacidad"
+        formControlName="capacidad">
+      <small class="invalid"
+        *ngIf="formulario.controls.capacidad.errors?.required && formulario.controls.capacidad.touched">
+        La capacidad es requerida
+      </small>
+      <small class="invalid"
+        *ngIf="formulario.controls.capacidad.errors?.min || formulario.controls.capacidad.errors?.max && formulario.controls.capacidad.touched">
+        La capacidad debe ser de 1 a 10 unidades
+      </small>
+      <small class="invalid"
+        *ngIf="formulario.controls.capacidad.errors?.pattern && formulario.controls.capacidad.touched">
+        La capacidad debe contener solo numeros.
+      </small>
+    </div>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-2">
+      <label for="unidadPropia" class="form-label">Tiene Unidad Propia ?</label>
+      <select class="form-control" id="unidadPropia" formControlName="unidadPropia">
+        <option value="">Seleccione uno</option>
+        <option value="true">si</option>
+        <option value="false">no</option>
+      </select>
+      <small class="invalid"
+        *ngIf="formulario.controls.unidadPropia.errors?.required && formulario.controls.unidadPropia.touched">
+        El unidadPropia es requerido
+      </small>
+    </div>
+
+    <div class="col-md-5 p-3">
+      <app-pais-detalle [pais]="pais"></app-pais-detalle>
+    </div>
+    <small class="invalid" *ngIf="errorPais">
+      El pais es requerido
+    </small>
+
+  </div>
+
 
   <hr class="my-4">
 
   <div class="row">
-    <div class="col-md-12 mb-5">
-      <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="terminos" formControlName="terminos">
-        <label class="form-check-label" for="terminos">
-          Aceptar términos y condiciones
-        </label>
-      </div>
-    </div>
+
     <div class="col-md-12 d-grid gap-2">
-      <button type="submit" class="btn btn-primary btn-block"
-        [disabled]="formulario.invalid || !formulario.controls.terminos.value">
-        Crear Actor
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid">
+        Crear Repartidor
       </button>
     </div>
   </div>
+
 </form>

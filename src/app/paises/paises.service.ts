@@ -11,7 +11,7 @@ export class PaisesService {
   constructor(public miHttp: BaseService) { }
 
   public ListarO(): Observable<Pais[]> {
-    return this.miHttp.httpGetO<Pais[]>('/americas');
+    return this.miHttp.httpGetO<Pais[]>('/Europe');
   }
 
 }

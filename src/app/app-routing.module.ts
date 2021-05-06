@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsuarioGuard } from './auth/guards/usuario.guard';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'repartidor',
-    loadChildren: () => import('./repartidor/repartidor.module').then(m => m.RepartidorModule)
+    loadChildren: () => import('./repartidor/repartidor.module').then(m => m.RepartidorModule),
+    canActivate: [UsuarioGuard],
   }
 
 ];

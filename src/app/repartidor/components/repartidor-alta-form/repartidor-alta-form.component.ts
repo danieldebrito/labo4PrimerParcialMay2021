@@ -17,13 +17,13 @@ export class RepartidorAltaFormComponent implements OnInit {
 
   formulario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{2,41}"), this.spacesValidator]),
-    apellido: new FormControl('', [Validators.required, Validators.maxLength(40), Validators.pattern("[a-zA-Z ]{1,41}")]),
-    sexo: new FormControl('', [Validators.required]),
-    fechaNacimiento: new FormControl('', [Validators.required]),
-    foto: new FormControl('/assets/actores/ted.jpg', [Validators.required]),
-    // paisOrigen: new FormControl(''),
-    terminos: new FormControl('', [Validators.required]),
+    edad: new FormControl('', [Validators.required, Validators.min(18), Validators.max(99), Validators.pattern("^[0-9]*$")]),
+    dni: new FormControl('', [Validators.required, Validators.minLength(7), Validators.maxLength(8), Validators.pattern("^[0-9]*$")]),
+    capacidad: new FormControl('', [Validators.required, Validators.min(1), Validators.max(10), Validators.pattern("^[0-9]*$")]),
+    unidadPropia: new FormControl('', [Validators.required]),
   });
+
+
 
   constructor(
     private actoresSv: RepartidorService
