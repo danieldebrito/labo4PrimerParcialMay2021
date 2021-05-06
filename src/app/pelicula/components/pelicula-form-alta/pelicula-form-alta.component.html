@@ -56,7 +56,7 @@
           <small class="invalid" *ngIf="formulario.controls.tipo.errors?.required && formulario.controls.tipo.touched">
             El tipo es requerido
           </small>
-          
+
         </div>
 
         <div class="col-md-5">
@@ -70,13 +70,16 @@
           </small>
         </div>
 
-        <div class="col-md-5 p-3">
-          <app-actor-tabla [data]="actores"></app-actor-tabla>
-        </div>
-        <small class="invalid" *ngIf="errorPais">
-          Los Actores es requerido
-        </small>
       </div>
+
+<div class="row">
+  <div class="col-md-12 p-3">
+    <app-actor-tabla [data]="actores"></app-actor-tabla>
+  </div>
+  <small class="invalid" *ngIf="errorPais">
+    Los Actores es requerido
+  </small>
+</div>
 
     </div>
   </div>
@@ -86,8 +89,7 @@
   <div class="row">
 
     <div class="col-md-12 d-grid gap-2">
-      <button type="submit" class="btn btn-primary btn-block"
-        [disabled]="formulario.invalid">
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid">
         Crear Pelicula
       </button>
     </div>
