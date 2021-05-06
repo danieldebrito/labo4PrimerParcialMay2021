@@ -1,0 +1,14 @@
+<div class="container p-3">
+    <div class="card-columns">
+        <div class="card" *ngFor="let item of data" >
+          <img class="card-img-top p-3" src="{{ item.fotoPelicula }}" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title"><b>{{ item.nombre }}</b></h2>
+            <p class="card-text"><b>Tipo :</b> {{ item.tipo }} </p>
+            <p class="card-text"><b>Fecha Estreno :</b> {{ item.fechaEstreno }} </p>
+            <p class="card-text"><b>Cant. Publico :</b> {{ item.cantPublico }} </p>
+            <a class="btn btn-info" (click)="enviaItem(item)" >Ver Detalle</a>
+          </div>
+        </div>
+    </div>
+</div>
