@@ -1,0 +1,13 @@
+<div class="card">
+    <!--
+    <img class="card-img-top p-3" src="{{ item.fotoPelicula }}" alt="Card image cap">
+    -->
+    <div class="card-body">
+      <h2 class="card-title"><b>{{ item.nombre }}</b></h2>
+      <p class="card-text"><b>Edad :</b> {{ item.edad }} </p>
+      <p class="card-text"><b>DNI :</b> {{ item.dni }} </p>
+      <p class="card-text"><b>Capacidad :</b> {{ item.capacidad }} </p>
+      <p class="card-text"><b>Unidad Propia ? :</b> {{ item.unidadPropia }} </p>
+      <a class="btn btn-info" (click)="limpia()">Limpiar </a>
+    </div>
+  </div>
