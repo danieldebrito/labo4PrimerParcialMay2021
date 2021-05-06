@@ -16,13 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: '',
-    loadChildren: () => import('./pelicula/pelicula.module').then(m => m.PeliculaModule)
-  },
-  {
-    path: 'actores',
-    loadChildren: () => import('./actor/actor.module').then(m => m.ActorModule)
+    path: 'repartidor',
+    loadChildren: () => import('./repartidor/repartidor.module').then(m => m.RepartidorModule)
   }
+
 ];
 
 @NgModule({

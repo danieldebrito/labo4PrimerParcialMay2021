@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActoresAltaComponent } from './pages/actores-alta/actores-alta.component';
-
+import { AltaComponent } from './pages/alta/alta.component';
 
 const routes: Routes = [
-  { path: 'alta', component: ActoresAltaComponent }
+  { path: 'alta', component: AltaComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ActorRoutingModule { }
+export class RepartidorRoutingModule { }

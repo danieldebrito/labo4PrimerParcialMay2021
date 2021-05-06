@@ -1,15 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Actor } from 'src/app/class/actor';
+import { Repartidor } from 'src/app/class/repartidor';
 import { Pais } from 'src/app/class/pais';
-import { ActoresService } from '../../actores.service';
+import { RepartidorService } from '../../repartidor.service';
 
 @Component({
-  selector: 'app-actor-alta',
-  templateUrl: './actor-alta.component.html',
-  styleUrls: ['./actor-alta.component.css']
+  selector: 'app-repartidor-alta-form',
+  templateUrl: './repartidor-alta-form.component.html',
+  styleUrls: ['./repartidor-alta-form.component.css']
 })
-export class ActorAltaComponent implements OnInit {
+export class RepartidorAltaFormComponent implements OnInit {
+
 
   @Input() pais: Pais;
   public errorPais = false;
@@ -25,7 +26,7 @@ export class ActorAltaComponent implements OnInit {
   });
 
   constructor(
-    private actoresSv: ActoresService
+    private actoresSv: RepartidorService
   ) { }
 
 
@@ -57,7 +58,7 @@ export class ActorAltaComponent implements OnInit {
       this.errorPais = true;
     } else {
       this.errorPais = false;
-      let actor: Actor = this.formulario.getRawValue();
+      let actor: Repartidor = this.formulario.getRawValue();
       actor.paisOrigen = this.pais;
       this.actoresSv.addItem(actor);
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GitService } from './git.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public data; //= [];
+
+
+  constructor(
+    private gitSv: GitService
+  ) { 
+    this.data = {};
+  }
+
+  public getData() {
+
+    this.gitSv.TraerUno().subscribe(response => {
+      this.data = response;
+      // console.log(this.data);
+    });
+  }
 
   ngOnInit(): void {
+    this.getData();
   }
 
 }

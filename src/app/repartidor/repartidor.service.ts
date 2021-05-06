@@ -2,24 +2,23 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Actor } from 'src/app/class/actor';
+import { Repartidor } from 'src/app/class/repartidor';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ActoresService {
-
-  ItemsCollection: AngularFirestoreCollection<Actor>;
-  ItemDoc: AngularFirestoreDocument<Actor>;
-  Items: Observable<Actor[]>;
+export class RepartidorService {
+  ItemsCollection: AngularFirestoreCollection<Repartidor>;
+  ItemDoc: AngularFirestoreDocument<Repartidor>;
+  Items: Observable<Repartidor[]>;
 
   public cantCarritoItems: number;
 
   constructor(public db: AngularFirestore) {
-    this.ItemsCollection = this.db.collection('actores');
+    this.ItemsCollection = this.db.collection('Repartidores');
     this.Items = this.ItemsCollection.snapshotChanges().pipe(map(actions => {
       return actions.map(a => {
-        const data = a.payload.doc.data() as Actor;
+        const data = a.payload.doc.data() as Repartidor;
         data.id = a.payload.doc.id;
         return data;
       });
@@ -30,17 +29,17 @@ export class ActoresService {
     return this.Items;
   }
 
-  public deleteItem(Item: Actor) {
-    this.ItemDoc = this.db.doc(`actores/${Item.id}`);
+  public deleteItem(Item: Repartidor) {
+    this.ItemDoc = this.db.doc(`Repartidores/${Item.id}`);
     this.ItemDoc.delete();
   }
 
-  public addItem(Item: Actor) {
+  public addItem(Item: Repartidor) {
     this.ItemsCollection.add(Item);
   }
 
-  public updateItem(Item: Actor) {
-    this.ItemDoc = this.db.doc(`actores/${Item.id}`);
+  public updateItem(Item: Repartidor) {
+    this.ItemDoc = this.db.doc(`Repartidores/${Item.id}`);
     this.ItemDoc.update(Item);
   }
 
