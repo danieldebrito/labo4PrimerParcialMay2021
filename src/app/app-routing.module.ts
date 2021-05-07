@@ -20,6 +20,11 @@ const routes: Routes = [
     path: 'repartidor',
     loadChildren: () => import('./repartidor/repartidor.module').then(m => m.RepartidorModule),
     canActivate: [UsuarioGuard],
+  },
+  {
+    path: '',
+    loadChildren: () => import('./pizza/pizza.module').then(m => m.PizzaModule),
+    canActivate: [UsuarioGuard],
   }
 
 ];

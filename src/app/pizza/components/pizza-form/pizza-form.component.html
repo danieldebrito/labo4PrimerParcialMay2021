@@ -1,0 +1,94 @@
+<form [formGroup]="formulario" (ngSubmit)="cargar()">
+
+<div class="card-body">
+    <div class="row">
+        <div class="col-sm-12">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="nombre">
+            <small class="invalid"
+                *ngIf="formulario.controls.nombre.errors?.required && formulario.controls.nombre.touched">
+                El nombre es requerido.
+            </small>
+            <small class="invalid"
+                *ngIf="formulario.controls.nombre.errors?.minlength && formulario.controls.nombre.touched">
+                El nombre debe tener al menos dos caracteres.
+            </small>
+            <small class="invalid"
+                *ngIf="formulario.controls.nombre.errors?.maxlength && formulario.controls.nombre.touched">
+                El nombre puede tener cuarenta caracteres maxino.
+            </small>
+            <small class="invalid"
+                *ngIf="formulario.controls.nombre.errors?.containsSpaces && formulario.controls.nombre.touched">
+                El nombre no puede contener espacios.
+            </small>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <label for="ingredientes" class="form-label">ingredientes</label>
+        <input type="text" class="form-control" id="ingredientes" placeholder="Ingrese ingredientes"
+            formControlName="ingredientes">
+        <small class="invalid"
+            *ngIf="formulario.controls.ingredientes.errors?.required && formulario.controls.ingredientes.touched">
+            El ingredientes es requerido.
+        </small>
+        <small class="invalid"
+            *ngIf="formulario.controls.ingredientes.errors?.minlength && formulario.controls.ingredientes.touched">
+            El ingredientes debe tener al menos dos caracteres.
+        </small>
+        <small class="invalid"
+            *ngIf="formulario.controls.ingredientes.errors?.maxlength && formulario.controls.ingredientes.touched">
+            El ingredientes puede tener ciento cuarenta caracteres maxino.
+        </small>
+        <small class="invalid"
+            *ngIf="formulario.controls.ingredientes.errors?.containsSpaces && formulario.controls.ingredientes.touched">
+            El ingredientes no puede contener espacios.
+        </small>
+    </div>
+
+    <div class="col-md-12 mb-3">
+        <label for="precio" class="form-label">precio</label>
+        <input type="text" class="form-control" id="precio" placeholder="Ingrese precio" formControlName="precio">
+        <small class="invalid" *ngIf="formulario.controls.precio.errors?.required && formulario.controls.precio.touched">
+          La precio es requerida
+        </small>
+        <small class="invalid"
+          *ngIf="formulario.controls.precio.errors?.min || formulario.controls.precio.errors?.max && formulario.controls.precio.touched">
+          La precio debe ser de 1 a 9999 
+        </small>
+        <small class="invalid" *ngIf="formulario.controls.precio.errors?.pattern && formulario.controls.precio.touched">
+          La precio debe contener solo numeros.
+        </small>
+      </div>
+
+      <div class="col-md-12 mb-3">
+        <label for="peso" class="form-label">peso</label>
+        <input type="text" class="form-control" id="peso" placeholder="Ingrese peso"
+          formControlName="peso">
+        <small class="invalid"
+          *ngIf="formulario.controls.peso.errors?.required && formulario.controls.peso.touched">
+          La peso es requerida
+        </small>
+        <small class="invalid"
+          *ngIf="formulario.controls.peso.errors?.min || formulario.controls.peso.errors?.max && formulario.controls.peso.touched">
+          La peso debe ser de 500 a 1000 gr
+        </small>
+        <small class="invalid"
+          *ngIf="formulario.controls.peso.errors?.pattern && formulario.controls.peso.touched">
+          La peso debe contener solo numeros.
+        </small>
+      </div>
+
+      <hr class="my-4">
+
+      <div class="row">
+    
+        <div class="col-md-12 d-grid gap-2">
+          <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid">
+            Crear Pizza
+          </button>
+        </div>
+      </div>
+
+</div>
+
+</form>
